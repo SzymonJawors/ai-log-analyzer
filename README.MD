@@ -88,7 +88,7 @@ Uruchomienie tego projektu "z palca" może być wyzwaniem ze względu na komunik
 Aby to działało, trzeba się trochę "pobawić":
 1. Trzeba wymusić na Ollamie słuchanie na wszystkich interfejsach (`OLLAMA_HOST=0.0.0.0`).
 2. Należy ogarnąć przepuszczanie ruchu na porcie 11434 w zaporze Windows (Firewall).
-3. W kodzie użyłem `host.docker.internal`, co rozwiązuje większość problemów, ale resztę technicznej gimnastyki z portami i Docker Network Bridge zostawiam dla ambitnych, którzy chcą poczuć prawdziwy ból i radość konfigurowania sieci kontenerowej. ;)
+3. W kodzie użyłem `host.docker.internal`, co rozwiązuje większość problemów, ale resztę technicznej zabawy z portami i Docker Network Bridge zostawiam dla ambitnych, którzy chcą poczuć prawdziwy ból i radość konfigurowania sieci kontenerowej. ;)
 
 ---
 Projekt stworzony do portfolio jako demonstracja integracji lokalnych LLM z architekturą mikroserwisową.
