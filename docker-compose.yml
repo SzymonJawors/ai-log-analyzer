@@ -1,0 +1,41 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+  
+  logger:
+    build: ./backend
+    environment:
+      - TZ=Europe/Warsaw
+    volumes:
+      - ./backend:/app
+    command: python logger_gen.py
+    depends_on:
+      - backend      
+  
+  analyzer:
+    build: ./backend
+    environment:
+      - TZ=Europe/Warsaw
+    volumes:
+      - ./backend:/app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: python log_analyzer.py
+    depends_on:
+      - backend
